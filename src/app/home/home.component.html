@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .cards {
+        padding: 0.35rem;
+        margin: 2.5rem 0 0 1rem;
+        max-width: 20%;
+        text-shadow: 1px 1px;
+        border-radius: 9px;
+        box-shadow: 1.5px 3px 3px 1.5px;
+        text-align: justify;
+        margin-bottom: 15px;
+        /* background-color: bisque; */
+      }
+      .cards:hover {
+        transform: scale(1.13);
+        animation: suraj 2s ease 1;
+        /* color:hsl(45, 98%, 60%); */
+      }
+      @keyframes wrongname {
+        0% {
+          transform: scale(1);
+          /* color: aqua; */
+        }
+        50% {
+          transform: scale(1.09);
+          /* color: blue; */
+        }
+        100% {
+          transform: scale(1.1);
+          /* color: red; */
+        }
+      }
+
+      .navbar ul li a {
+        list-style-type: none;
+        color: currentColor;
+        text-decoration: none;
+        display: flex;
+      }
+      #list:hover {
+        background-color: antiquewhite;
+        border-radius: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="navbar justify-content-center bg-body-tertiary"
+      style="background-color: #9a616d"
+    >
+      <ul class="nav justify-content-center">
+        <!-- <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+      </li> -->
+        <li id="list" class="nav-item">
+          <a class="nav-link" href="cart">Cart</a>
+        </li>
+        <li id="list" class="nav-item">
+          <a class="nav-link" href="about">Link</a>
+        </li>
+        <li id="list" class="nav-item">
+          <a class="nav-link" href="contact">Contact</a>
+        </li>
+        <li id="list" class="nav-item">
+          <a
+            class="nav-link"
+            href=""
+            style="text-align: right"
+            (click)="logout()"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div style="margin: 35px 0px 25px 5rem; display: flex; flex-wrap: wrap">
+      <div *ngFor="let data of datas" class="cards">
+        <p style="color: aqua">{{ data.foodName }}</p>
+        <img
+          [src]="data.foodImage"
+          width="150"
+          style="
+            border-radius: 5px;
+            margin: 0 0 1rem -0.6rem;
+            padding: 10px;
+            object-fit: cover;
+          "
+          height="150"
+          alt=""
+        />
+
+        <p>{{ data.foodPrice }} ₹</p>
+        <button (click)="openDialog()" class="btn btn-success">Order</button>
+        <button
+          (ngModule)="(getEmail)"
+          class="btn btn-info"
+          style="font-size: small; bottom: 45px; margin-top: 5px"
+          (click)="addToCart(data, getEmail)"
+        >
+          Add To Cart
+        </button>
+      </div>
+    </div>
+    <!-- -->
+  </body>
+</html>

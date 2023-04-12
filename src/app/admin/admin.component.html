@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <!-- <script scr=""></script> -->
+    <style>
+      .navbar {
+        background-color: #9a616d;
+        text-align: center;
+        padding: 15px;
+      }
+      .navbar a {
+        margin-left: 37rem;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: large;
+        text-transform: uppercase;
+      }
+      form {
+        align-content: center;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0 0 0;
+      }
+      form input {
+        width: 100%;
+
+        /* display: inline-flex; */
+      }
+      .back {
+        background-color: aqua;
+        min-height: 20vw;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 12px 0 0 23rem;
+        box-shadow: 2px 2px;
+        border-radius: 2.5px;
+        width: 45%;
+      }
+      .back:hover {
+        transform: scale(1.05);
+      }
+    </style>
+    <title>Sample</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <a style="text-align: right">admin page</a>
+    </div>
+    <div class="back">
+      <form action="" [formGroup]="Form" (ngSubmit)="su()">
+        <div>
+          <label class="text-info" for="">Email: </label> <br />
+
+          <input
+            type="text"
+            placeholder="Enter Email"
+            formControlName="email"
+            class="form-control"
+          />
+          <small
+            *ngIf="!Form.get('email').valid && Form.get('email').touched"
+            class="text-danger"
+            >Please Enter Email</small
+          >
+        </div>
+        <div>
+          <label class="text-info" for="">Password: </label> <br />
+
+          <input
+            type="password"
+            placeholder="Enter Password"
+            formControlName="password"
+            class="form-control"
+          />
+          <small
+            *ngIf="!Form.get('password').valid && Form.get('password').touched"
+            class="text-danger"
+            >Please Enter Password</small
+          >
+        </div>
+        <div>
+          <input
+            type="submit"
+            class="btn btn-success"
+            style="margin-top: 12px"
+            value="Login"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

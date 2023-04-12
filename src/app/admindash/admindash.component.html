@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <form
+        #userForm="ngForm"
+        class="container"
+        method="post"
+        action=""
+        (ngSubmit)="addFood(userForm.value)"
+      >
+        <div>
+          <h1
+            class="text-center text-warning text-uppercase"
+            style="margin-left: 5px"
+          >
+            Add Food Items
+          </h1>
+        </div>
+        <!-- "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1888&q=80" -->
+        <!-- "https://www.cypressgreen.in/blog/wp-content/uploads/2021/03/food-1536x1024.jpg" -->
+        <!-- <img
+          src=""
+          width="100"
+          height="100"
+          alt=""
+        /> -->
+        <div>
+          <label for=""
+            >Enter Food Id <fa-icon [icon]="icons.doc"></fa-icon>
+          </label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodId"
+            ngModel
+            id="foodId"
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Name
+            <fa-icon [icon]="icons.name"></fa-icon>
+          </label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodName"
+            ngModel
+            id="foodName"
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Description <fa-icon [icon]="icons.desc"></fa-icon
+          ></label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodDesc"
+            ngModel
+            id="foodDesc"
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Price <fa-icon [icon]="icons.price"></fa-icon
+          ></label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodPrice"
+            id="foodPrice"
+            ngModel
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Type&nbsp; <fa-icon [icon]="icons.type[1]"></fa-icon> |
+            <fa-icon [icon]="icons.type[0]"></fa-icon>
+          </label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodType"
+            id="foodType"
+            ngModel
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Image Url&nbsp;<fa-icon
+              [icon]="icons.imageurl"
+            ></fa-icon
+          ></label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodImage"
+            id="foodImage"
+            ngModel
+          />
+        </div>
+        <div class="text-center">
+          <input
+            type="submit"
+            name="Submit"
+            value="INSERT"
+            class="btn btn-danger"
+          />
+        </div>
+      </form>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="text-center text-uppercase">
+          <th>Food Name</th>
+          <th>Food Desc</th>
+          <th>Food Price</th>
+          <th>Food Type</th>
+          <th>Food Image</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let data of datas">
+          <td>{{ data.foodName }}</td>
+          <td>{{ data.foodDesc }}</td>
+          <td>{{ data.foodPrice }}</td>
+          <td>{{ data.foodType }}</td>
+          <img [src]="data.foodImage" width="100" height="100" />
+          <td>
+            <button
+              (click)="onUpdate(data, data.foodId)"
+              class="btn btn-success text-uppercase my-2"
+            >
+              update
+            </button>
+            <br />
+            <button
+              (click)="onDelete(data.foodId)"
+              class="btn btn-danger text-uppercase"
+            >
+              delete
+            </button>
+          </td>
+          <!-- <img src="" alt="" /> -->
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+<!-- <div style="margin-top: 12rem"> -->
+<!-- <form action=""> -->
+<!-- <table class="table table-striped table-hover"> -->
+<!-- <thead> -->
+<!-- <th>Email</th> -->
+<!-- <th>First Name</th> -->
+<!-- <th>Last Name</th> -->
+<!-- <th>Password</th> -->
+<!-- </thead> -->
+<!-- <tbody> -->
+<!-- <tr *ngFor="let lists of custs">
+          <td>{{ lists.email }}</td>
+          <td>{{ lists.custFirstName }}</td>
+          <img
+            [src]="lists.custLastName"
+            alt="..."
+            width="100"
+            height="100"
+          />
+          <td>{{ lists.custLastName }}</td> 
+          <td>{{ lists.password }}</td>
+          <td>
+            <button
+              type="submit"
+              class="btn btn-danger"
+              (click)="deleteCust(lists.email)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr> -->
+<!-- </tbody> -->
+<!-- </table> -->
+<!-- </form> -->
+<!-- </div> -->

@@ -1,0 +1,245 @@
+<!-- <p>login works!</p> -->
+<style>
+  /* @import url("https://fonts.googleapis.com/css?family=Roboto:700"); */
+  body {
+    margin: 0px;
+    font-family: "Roboto";
+    text-align: center;
+  }
+  .containers {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 15px;
+    position: fixed;
+    width: 25%;
+    border-radius: 15px;
+    top: 10px;
+    display: block;
+    position: absolute;
+  }
+  .flips {
+    height: 50px;
+    overflow: hidden;
+  }
+  .flips > div > div {
+    color: #fff;
+    padding: 12px 12px;
+    height: 45px;
+    margin-bottom: 45px;
+    /* border-radius: 1rem; */
+    display: inline-block;
+  }
+  .flips div:first-child {
+    animation: show 5s linear infinite;
+  }
+  .flips div div {
+    background: #42c58a;
+  }
+  .flips div:first-child div {
+    background: #4ec7f3;
+  }
+
+  .flips div:last-child div {
+    background: #dc143c;
+  }
+
+  @keyframes show {
+    0% {
+      margin-top: -250px;
+    }
+    5% {
+      margin-top: -160px;
+    }
+    33% {
+      margin-top: -160px;
+    }
+    38% {
+      margin-top: -70px;
+    }
+    66% {
+      margin-top: -70px;
+    }
+    71% {
+      margin-top: 0px;
+    }
+    99.99% {
+      margin-top: 0px;
+    }
+    100% {
+      margin-top: -270px;
+    }
+  }
+  svg {
+    width: 25%;
+  }
+</style>
+<script></script>
+<div style="background-color: #9a616d"><br /></div>
+<section class="vh-100" style="background-color: #9a616d">
+  <div class="container py-5 h-100">
+    <!-- <div style="justify-content: center; align-items: center; display: flex">
+      <div class="containers">
+        Make
+        <div class="flips">
+          <div>
+            <div>wOrK</div>
+          </div>
+          <div>
+            <div>your day</div>
+          </div>
+          <div>
+            <div>Everything</div>
+          </div>
+        </div>
+        AweSoMe!
+      </div>
+    </div> -->
+    <!-- <script>
+      let user = document.getElementById("msg2").innerText;
+    </script> -->
+    <script>
+      function login() {
+        let email = document.getElementById("form2Example17").value;
+        let password = document.getElementById("form2Example27").value;
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userPass", password);
+      }
+    </script>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="assets/images/foscycle_boy.jpg"
+                alt="login form"
+                class="img-fluid"
+                style="border-radius: 1rem 0 0 0"
+              />
+            </div>
+
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form
+                  [formGroup]="loginForm"
+                  (ngSubmit)="loginCustomer(loginForm.value)"
+                >
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <!-- <i
+                      class="fas fa-cubes fa-2x me-3"
+                      style="color: #ff6219"
+                    ></i> -->
+                    <img
+                      width="12%"
+                      src="assets/images/order-food.png"
+                      alt="..."
+                    />
+                    <span
+                      style="
+                        font-weight: bold;
+                        font-size: 25px;
+                        margin: 0 0 0 12px;
+                        text-transform: uppercase;
+                      "
+                      class=""
+                      >Order Food</span
+                    >
+                    <!-- h1 fw-bold mb-0 -->
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                    Sign into your account
+                  </h5>
+
+                  <div class="form-outline mb-4">
+                    <label
+                      class="form-label"
+                      id="form2Example7"
+                      for="form2Example17"
+                      >Email address</label
+                    >
+                    <input
+                      type="email"
+                      id="form2Example17"
+                      name="email"
+                      formControlName="email"
+                      class="form-control form-control-md"
+                    />
+
+                    <small
+                      *ngIf="
+                        !loginForm.get('email').valid &&
+                        loginForm.get('email').touched
+                      "
+                      class="text-danger"
+                      >Please Enter Valid Email</small
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example27"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      id="form2Example27"
+                      name="password"
+                      formControlName="password"
+                      class="form-control form-control-md"
+                    />
+
+                    <small
+                      *ngIf="
+                        !loginForm.get('password').valid &&
+                        loginForm.get('password').touched
+                      "
+                      class="text-danger"
+                      >Password Length Should be of 6 or more</small
+                    >
+                  </div>
+                  <p id="msg2"></p>
+                  <p id="msg" class="text-danger"></p>
+                  <div class="pt-1 mb-4">
+                    <input
+                      type="submit"
+                      value="Login"
+                      class="btn btn-dark btn-lg btn-block"
+                    />
+                    <!-- <button class="btn btn-outline-success" onclick="login()"> -->
+                  </div>
+
+                  <a class="small text-muted" href="#!">Forgot password?</a>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81">
+                    Don't have an account?
+                    <a href="customer" style="color: #393f81">Register here</a>
+                  </p>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                  <!-- <p>{{ parentData }}</p> -->
+                  <!-- <table>
+                    <thead>
+                      <th>abc</th>
+                      <th>xyz</th>
+                      <th>pqr</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let x of parentData">
+                        <td>
+                          {{ x.foodId }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- you need to use ngModel for it to work properly -->
+<!-- <app-home [parentData]="child"></app-home> -->

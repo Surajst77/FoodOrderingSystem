@@ -1,0 +1,77 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      .modals {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 100%;
+        padding: 100px;
+        background-color: rgb(0, 200, 255);
+        border-radius: 5px;
+      }
+      .modals input:hover {
+        border: 1px solid red;
+      }
+      .modals input {
+        margin: 0 0 9px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modals">
+      <form action="" [formGroup]="Form">
+        <div>
+          <p style="font-weight: 600; font-size: large; margin-left: 25px">
+            Enter Card Details
+          </p>
+        </div>
+        <input
+          type="text"
+          placeholder="Enter Card No."
+          formControlName="cardNo"
+          class="form-control"
+        />
+        <small
+          *ngIf="!Form.get('cardNo').valid && Form.get('cardNo').touched"
+          class="text-danger"
+          >Enter Valid Card No</small
+        >
+        <input
+          type="text"
+          placeholder="Enter CVV"
+          class="form-control"
+          formControlName="cvv"
+        />
+
+        <small
+          class="text-danger"
+          *ngIf="!Form.get('cvv').valid && Form.get('cvv').touched"
+          >Enter Valid CVV</small
+        >
+        <input
+          type="text"
+          placeholder="Enter Expiry Date"
+          class="form-control"
+          formControlName="expiry"
+        />
+
+        <small
+          *ngIf="!Form.get('expiry').valid && Form.get('expiry').touched"
+          class="text-danger"
+          >Enter Valid Expiry Date</small
+        >
+        <input
+          type="submit"
+          style="margin-left: 0.7rem; width: 90%"
+          value="Order"
+          class="btn btn-outline-success"
+          (click)="closeDialog()"
+        />
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

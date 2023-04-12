@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Bootstrap Registration Page with Floating Labels</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript" src="/js/lib/dummy.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="/css/result-light.css" /> -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <style id="compiled-css" type="text/css">
+      body {
+        background: #007bff;
+        background-image: url("assets/images/fosFoods.jpg");
+        background-size: cover;
+        min-height: 69vw;
+        /* background: linear-gradient(to right, #0062e6, #33aeff); */
+      }
+
+      .card-img-left {
+        width: 45%;
+        /* Link to your background image using in the property below! */
+        background: scroll center url("assets/images/fospizza.jpg");
+        background-size: cover;
+      }
+
+      .btn-login {
+        font-size: 0.9rem;
+        letter-spacing: 0.05rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .btn-google {
+        color: white !important;
+        background-color: #ea4335;
+      }
+      small {
+        margin-left: 9px;
+      }
+
+      .btn-facebook {
+        color: white !important;
+        background-color: #3b5998;
+      }
+      #anime {
+        box-shadow: 0px 0px 15px -5px;
+        transition: 0.3s;
+        animation: ease-in;
+      }
+      #anime:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px 0px;
+      }
+      .cont {
+        background-color: #9a616d;
+        color: black;
+        padding: 12px;
+        flex-wrap: wrap;
+        /* left: 0; */
+      }
+      .cont a {
+        /* background-color: #ea4335; */
+        padding: 10px;
+      }
+      .atag:hover {
+        /* background-color: linear-gradient(to right, white, red); */
+        background-color: #3b5998;
+        border-radius: 10px;
+      }
+      cont a :hover {
+        background-color: brown;
+      }
+      /* EOS */
+    </style>
+
+    <script id="insert"></script>
+  </head>
+  <body>
+    <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+    <body>
+      <div class="cont" style="color: white">
+        <a
+          style="margin-left: 62rem; text-decoration: none; color: white"
+          routerLink="/login"
+          class="atag"
+          routerLinkActive="active"
+          >Login</a
+        >
+        <a
+          routerLink="*"
+          routerLinkActive="active"
+          class="atag"
+          style="text-decoration: none; color: white"
+          >About</a
+        >
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 mx-auto">
+            <div
+              id="anime"
+              class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden"
+            >
+              <div class="card-img-left d-none d-md-flex">
+                <!-- Background image for card set in CSS! -->
+              </div>
+              <div class="card-body p-4 p-sm-5">
+                <h5 class="card-title text-center mb-5 fw-100 fs-2">
+                  Register
+                </h5>
+                <form
+                  [formGroup]="regForm"
+                  (ngSubmit)="getCustomer(regForm.value)"
+                >
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingInputUsername"
+                      placeholder="myusername"
+                      name="email"
+                      formControlName="email"
+                      autocomplete="on"
+                      required
+                      autofocus
+                    />
+                    <label for="floatingInputUsername">Email</label>
+                    <p id="custEmail" class="text-danger"></p>
+                    <small
+                      *ngIf="
+                        !regForm.get('email').valid &&
+                        regForm.get('email').touched
+                      "
+                      class="text-danger"
+                      >Please Enter Valid Email</small
+                    >
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="floatingInputEmail"
+                      name="custFirstName"
+                      formControlName="firstName"
+                      autocomplete="on"
+                      placeholder="name@example.com"
+                    />
+                    <label for="floatingInputEmail">First Name</label>
+                    <p id="firstName" class="text-danger"></p>
+                    <small
+                      *ngIf="
+                        !regForm.get('firstName').valid &&
+                        regForm.get('firstName').touched
+                      "
+                      class="text-danger"
+                      >Please Enter Valid Password</small
+                    >
+                  </div>
+                  <!-- <hr /> -->
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingPassword"
+                      name="custLastName"
+                      formControlName="lastName"
+                      autocomplete="on"
+                      placeholder="Password"
+                    />
+                    <label for="floatrmingPassword">Last Name</label>
+                    <p class="text-danger" id="lastName"></p>
+                    <small
+                      *ngIf="
+                        !regForm.get('lastName').valid &&
+                        regForm.get('lastName').touched
+                      "
+                      class="text-danger"
+                      >Please Enter Valid Name</small
+                    >
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="floatingPasswordConfirm"
+                      name="password"
+                      formControlName="password"
+                      placeholder="Confirm Password"
+                    />
+                    <label for="floatingPasswordConfirm">Password</label>
+                    <p class="text-danger" id="custPassword"></p>
+                    <small
+                      *ngIf="
+                        !regForm.get('password').valid &&
+                        regForm.get('password').touched
+                      "
+                      class="text-danger"
+                      >Password Length should be of 6 or more</small
+                    >
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="floatingPasswordConfirm2"
+                      name="confirmPassword"
+                      formControlName="cnfrmPassword"
+                      placeholder="Confirm Password"
+                    />
+                    <label for="floatingPasswordConfirm"
+                      >Confirm Password</label
+                    >
+                    <p id="cnfrmPassword" class="text-danger"></p>
+                    <small
+                      *ngIf="
+                        !regForm.get('cnfrmPassword').valid &&
+                        regForm.get('cnfrmPassword').touched
+                      "
+                      class="text-danger"
+                      >Password Length should be of 6 or more
+                    </small>
+                  </div>
+                  <div>
+                    <p
+                      class="text-success"
+                      id="ptag"
+                      style="margin-left: 1rem"
+                    ></p>
+                    <p class="text-success" id="scss"></p>
+                  </div>
+                  <div class="d-grid mb-2">
+                    <input
+                      value="Register"
+                      class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
+                      type="submit"
+                    />
+                    <!-- Register
+                    </button> -->
+                  </div>
+
+                  <a
+                    class="d-block text-center mt-2 small"
+                    routerLink="/login"
+                    routerLinkActive="active"
+                    >Have an account? Sign In</a
+                  >
+
+                  <hr class="my-4" />
+
+                  <!-- <div class="d-grid mb-2">
+                      <button
+                        class="btn btn-lg btn-google btn-login fw-bold text-uppercase"
+                        type="submit"
+                      >
+                        <i class="fab fa-google me-2"></i> Sign up with Google
+                      </button>
+                    </div>
+
+                    <div class="d-grid">
+                      <button
+                        class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase"
+                        type="submit"
+                      >
+                        <i class="fab fa-facebook-f me-2"></i> Sign up with
+                        Facebook
+                      </button>
+                    </div> -->
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </body>
+
+    <script type="text/javascript">
+      //<![CDATA[
+
+      //]]>
+    </script>
+
+    <script>
+      // tell the embed parent frame the height of the content
+      if (window.parent && window.parent.parent) {
+        window.parent.parent.postMessage(
+          [
+            "resultsFrame",
+            {
+              height: document.body.getBoundingClientRect().height,
+              slug: "1nu8g6e5",
+            },
+          ],
+          "*"
+        );
+      }
+
+      // always overwrite window.name, in case users try to set it manually
+      window.name = "result";
+    </script>
+  </body>
+</html>

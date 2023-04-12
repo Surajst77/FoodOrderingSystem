@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .containers {
+        /* height: 35rem; */
+        min-height: 69vw;
+        background-image: url("assets/images/fosFoods.jpg");
+        background-size: cover;
+        color: red;
+        font-weight: light;
+        text-decoration: none;
+        color: currentColor;
+      }
+      @media (min-width: 600px) {
+        body {
+          background-color: red;
+        }
+      }
+      .containers a {
+        text-decoration: none;
+        color: red;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: Arial;
+        width: 100px;
+        display: block;
+        position: relative;
+        /* border-radius: 15px; */
+        margin: 9px 9px 0 9px;
+        padding: 20px 15px;
+        /* background-color: #fff; */
+      }
+      .containers ul {
+        list-style: none;
+        /* background: #0bb0bd; */
+        text-align: right;
+        padding: 0;
+        margin: 0;
+      }
+      .containers a:hover {
+        background-color: #4ec7f3;
+        border-radius: 5rem;
+      }
+      .containers li {
+        display: inline-block;
+      }
+      .cont2 {
+        background-image: url("assets/images/foscycle_boy.jpg");
+        background-size: contain;
+        min-height: 123.5vw;
+        /* width: 50rem; */
+      }
+      @import url("https://fonts.googleapis.com/css?family=Roboto:700");
+      /* body {
+              margin: 0px;
+              font-family: "Roboto";
+              text-align: center;
+            } */
+      #container {
+        color: #999;
+        text-transform: uppercase;
+        font-size: 36px;
+        font-weight: bold;
+        padding-top: 15px;
+        position: absolute;
+        width: 25%;
+        border-radius: 15px;
+        top: 20rem;
+        text-align: center;
+        display: block;
+        background-color: aqua;
+      }
+      #flip {
+        height: 50px;
+        overflow: hidden;
+      }
+      .footer {
+        bottom: 0;
+        background-color: #999;
+        text-align: center;
+        min-height: 10vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 1.1rem;
+        border: 1px solid #dc143c;
+      }
+      #flip > div > div {
+        color: #fff;
+        padding: 0px 12px;
+        height: 45px;
+        margin-bottom: 45px;
+        display: inline-block;
+      }
+      #flip div:first-child {
+        animation: show 5s linear infinite;
+      }
+      #flip div div {
+        background: #42c58a;
+      }
+      #flip div:first-child div {
+        background: #4ec7f3;
+      }
+
+      #flip div:last-child div {
+        background: #dc143c;
+      }
+
+      @keyframes show {
+        0% {
+          margin-top: -270px;
+        }
+        5% {
+          margin-top: -180px;
+        }
+        33% {
+          margin-top: -180px;
+        }
+        38% {
+          margin-top: -90px;
+        }
+        66% {
+          margin-top: -90px;
+        }
+        71% {
+          margin-top: 0px;
+        }
+        99.99% {
+          margin-top: 0px;
+        }
+        100% {
+          margin-top: -270px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="containers">
+      <ul>
+        <li>
+          <a href="login">Login</a>
+        </li>
+        <li>
+          <a href="customer">Register </a>
+        </li>
+        <li><a href="*">About</a></li>
+        <li><a href="*">Contact</a></li>
+      </ul>
+    </div>
+    <div style="justify-content: center; align-items: center; display: flex">
+      <div id="container">
+        Make
+        <div id="flip">
+          <div>
+            <div>wOrK</div>
+          </div>
+          <div>
+            <div>your day</div>
+          </div>
+          <div>
+            <div>Everything</div>
+          </div>
+        </div>
+        AweSoMe!
+      </div>
+    </div>
+    <div class="cont2">Cont2</div>
+    <div class="footer">All Copyrights &copy; Reserved</div>
+  </body>
+</html>
