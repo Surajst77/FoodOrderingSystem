@@ -6,6 +6,7 @@ import { Admin } from '../admin';
 import { HttpClient } from '@angular/common/http';
 import { AdminService } from '../admin.service';
 import {Observable} from 'rxjs';
+import { Router } from '@angular/router';
 import { FormBuilder, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-admindash',
@@ -14,7 +15,7 @@ import { FormBuilder, FormControl } from '@angular/forms';
 })
 export class AdmindashComponent implements OnInit {
 
-  constructor(private http:HttpClient, private serve: AdminService){}
+  constructor(private http:HttpClient,private router:Router, private serve: AdminService){}
   ngOnInit(): void {
     this.getFoods();
   }
@@ -53,6 +54,12 @@ export class AdmindashComponent implements OnInit {
     this.serve.getFood().subscribe(data=>{console.log(data);
       this.datas=data
     });
+ }
+ getEmail=localStorage.getItem('adEmail');
+ 
+ logout(id:string){
+    localStorage.removeItem('adEmail');
+    this.router.navigate(['admin']);
  }
 
 }

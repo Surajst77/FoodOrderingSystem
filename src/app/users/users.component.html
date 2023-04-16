@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr class="text-center text-uppercase">
+            <th>Food Name</th>
+            <th>Food Desc</th>
+            <th>Food Price</th>
+            <th>Food Type</th>
+            <th>Food Image</th>
+            <th>actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngFor="let data of datas">
+            <td>{{ data.foodName }}</td>
+            <td>{{ data.foodDesc }}</td>
+            <td>{{ data.foodPrice }}</td>
+            <td>{{ data.foodType }}</td>
+            <img [src]="data.foodImage" width="100" height="100" />
+            <td>
+              <button
+                (click)="openModal()"
+                class="btn btn-success text-uppercase my-2"
+              >
+                <!-- (click)="onUpdate(data, data.foodId)" -->
+                update
+              </button>
+              <br />
+              <button
+                (click)="onDelete(data.foodId)"
+                class="btn btn-danger text-uppercase"
+              >
+                delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

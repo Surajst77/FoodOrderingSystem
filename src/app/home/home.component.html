@@ -14,20 +14,22 @@
         padding: 0;
       }
       .cards {
-        padding: 0.35rem;
-        margin: 2.5rem 0 0 1rem;
-        max-width: 20%;
-        text-shadow: 1px 1px;
-        border-radius: 9px;
-        box-shadow: 1.5px 3px 3px 1.5px;
-        text-align: justify;
-        margin-bottom: 15px;
-        /* background-color: bisque; */
+        /* padding: 0.35rem; */
+        margin: 4rem 0 0 2rem;
+        max-width: 19.9%;
+
+        /* font-weight: bold; */
+        /* border-radius: 9px; */
+        box-shadow: 0px 0px 15px -5px;
+        animation: ease-in;
+        transition: 0.5s;
+        /* text-align: justify; */
+        /* margin-bottom: 15px; */
       }
       .cards:hover {
-        transform: scale(1.13);
-        animation: suraj 2s ease 1;
-        /* color:hsl(45, 98%, 60%); */
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px 0px;
+        color: hsl(45, 98%, 60%);
       }
       @keyframes wrongname {
         0% {
@@ -59,7 +61,7 @@
   <body>
     <div
       class="navbar justify-content-center bg-body-tertiary"
-      style="background-color: #9a616d"
+      style="background-color: #9a616d; position: fixed; top: 0; width: 100%"
     >
       <ul class="nav justify-content-center">
         <!-- <li class="nav-item">
@@ -88,30 +90,53 @@
 
     <div style="margin: 35px 0px 25px 5rem; display: flex; flex-wrap: wrap">
       <div *ngFor="let data of datas" class="cards">
-        <p style="color: aqua">{{ data.foodName }}</p>
+        <p style="color: #9a616d; text-align: center; margin: 0 0 -7px 0">
+          {{ data.foodName }}
+        </p>
         <img
           [src]="data.foodImage"
-          width="150"
           style="
             border-radius: 5px;
-            margin: 0 0 1rem -0.6rem;
+            margin: 0 0 1rem -0.61rem;
             padding: 10px;
             object-fit: cover;
           "
-          height="150"
+          width="258"
+          height="200"
           alt=""
         />
-
-        <p>{{ data.foodPrice }} ₹</p>
-        <button (click)="openDialog()" class="btn btn-success">Order</button>
-        <button
-          (ngModule)="(getEmail)"
-          class="btn btn-info"
-          style="font-size: small; bottom: 45px; margin-top: 5px"
-          (click)="addToCart(data, getEmail)"
+        <div
+          style="background-color: white; height: 35%; margin: -26px 0 2rem 0px"
         >
-          Add To Cart
-        </button>
+          <p style="margin: 1rem">{{ data.foodPrice }} ₹</p>
+          <p style="margin: 1rem">
+            {{ data.foodDesc }}
+          </p>
+          <button
+            (click)="openDialog()"
+            style="margin-left: 12px"
+            class="btn btn-success"
+          >
+            Order
+          </button>
+          <button
+            (ngModule)="(getEmail)"
+            class="btn btn-info"
+            style="
+              font-size: small;
+              bottom: 45px;
+              margin: 5px 0 0 1rem;
+              height: 2.25rem;
+              justify-content: center;
+              align-items: center;
+
+              background-color: hsl(45, 98%, 60%);
+            "
+            (click)="addToCart(data, getEmail)"
+          >
+            Add To Cart
+          </button>
+        </div>
       </div>
     </div>
     <!-- -->

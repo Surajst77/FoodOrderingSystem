@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { routingComponents } from './app-routing.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,14 +16,24 @@ import { DashboardComponent } from './modules/admin/components/dashboard/dashboa
 import { CartComponent } from './cart/cart.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopupComponent } from './popup/popup.component';
+import { NgModule } from '@angular/core';
+import { AdmindashComponent } from './admindash/admindash.component';
+import { FoodsComponent } from './foods/foods.component';
+import { UsersComponent } from './users/users.component';
+import { UzersComponent } from './uzers/uzers.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     LoginComponent,
-    DashboardComponent,
+    // DashboardComponent,
     CartComponent,
     PopupComponent,
+    FoodsComponent,
+    UsersComponent,
+    UzersComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -34,6 +44,7 @@ import { PopupComponent } from './popup/popup.component';
     MatDialogModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    
        
   ],
   providers: [CustomerService,AdminService, AuthGuard],

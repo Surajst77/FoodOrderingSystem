@@ -11,6 +11,9 @@ import { LandingComponent } from './landing/landing.component';
 import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PopupComponent } from './popup/popup.component';
+import { FoodsComponent } from './foods/foods.component';
+import { UsersComponent } from './users/users.component';
+import { UzersComponent } from './uzers/uzers.component';
 
 const routes: Routes = [
   {path:'',  redirectTo:'landing',pathMatch:'full'},
@@ -18,7 +21,12 @@ const routes: Routes = [
   {path:'customer',component:CustomerComponent},
   {path:'login',component:LoginComponent},
   {path:'home',component:HomeComponent},
-  {path:'admin',component:AdminComponent},
+  {path:'admin',  component:AdminComponent
+  // import('./modules/admin/admin.module').then((m)=>m.AdminModule),
+  },
+  {path:'addfood',component:FoodsComponent},
+  {path:'custs',component:UzersComponent},
+  {path:'foods',component:UsersComponent},
   {path:'dashboard',component:AdmindashComponent},
   {path:'cart',component:CartComponent},
   {path:'mod',component:PopupComponent},

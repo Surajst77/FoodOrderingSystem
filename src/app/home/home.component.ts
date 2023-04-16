@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit{
     }
   custs:Customer[];
   cart:Cart
+  addbtn="Add To Cart";
   ngOnInit():void{
     // this.getCust().subscribe(data => this.custs = data);
     this.getFoods();
@@ -50,7 +51,8 @@ export class HomeComponent implements OnInit{
   emailId="suraj3@gmail.com"
 
   addToCart(cart, id:any){
-      this.custService.addToCart(cart,id).subscribe(res=>console.log(res));
+    this.custService.addToCart(cart,id).subscribe(res=>console.log(res));
+    // this.addbtn = "Added to cart";
       
   }
   logout()

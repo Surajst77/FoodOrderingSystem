@@ -15,6 +15,7 @@ export class CustomerService {
   baseURL="http://localhost:8080/cust/cart";
   url2="http://localhost:8080/cust/add";
   url3="http://localhost:8080/cust/removecart"
+  
    addToCart(cart, id:any):Observable<object>{
     // return this.http.post('http://localhost:8080/cust/add/'+id+'',cart);
     return this.http.post(`${this.url2}/${id}`,cart);

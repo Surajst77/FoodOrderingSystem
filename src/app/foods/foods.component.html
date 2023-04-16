@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <form
+        #userForm="ngForm"
+        class="container"
+        method="post"
+        action=""
+        (ngSubmit)="addFood(userForm.value)"
+      >
+        <div>
+          <h1
+            class="text-center text-warning text-uppercase"
+            style="margin-left: 5px"
+          >
+            Add Food Items
+          </h1>
+        </div>
+
+        <div>
+          <label for=""
+            >Enter Food Id <fa-icon [icon]="icons.doc"></fa-icon>
+          </label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodId"
+            ngModel
+            id="foodId"
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Name
+            <fa-icon [icon]="icons.name"></fa-icon>
+          </label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodName"
+            ngModel
+            id="foodName"
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Description <fa-icon [icon]="icons.desc"></fa-icon
+          ></label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodDesc"
+            ngModel
+            id="foodDesc"
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Price <fa-icon [icon]="icons.price"></fa-icon
+          ></label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodPrice"
+            id="foodPrice"
+            ngModel
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Type&nbsp; <fa-icon [icon]="icons.type[1]"></fa-icon> |
+            <fa-icon [icon]="icons.type[0]"></fa-icon>
+          </label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodType"
+            id="foodType"
+            ngModel
+          />
+        </div>
+        <div>
+          <label for=""
+            >Enter Food Image Url&nbsp;<fa-icon
+              [icon]="icons.imageurl"
+            ></fa-icon
+          ></label>
+          <input
+            type="text"
+            class="form-control my-3"
+            name="foodImage"
+            id="foodImage"
+            ngModel
+          />
+        </div>
+        <div class="text-center">
+          <input
+            type="submit"
+            name="Submit"
+            value="INSERT"
+            class="btn btn-danger"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
